@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import MemberCard from './components/MemberCard/MemberCard';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const members = require('./../src/assets/data/team.json');
+
+// todo: change layout to two columns
+
+class App extends Component {
+
+  render() {
+    return (
+      <div className="flex-col flex-wrap">
+        {
+          members.map(member => {
+            return (
+              <MemberCard key={ member.id }
+                          id={ member.id }
+                          title={ member.title }
+                          name={ member.name }
+                          email={ member.email }
+                          image={ member.image }>
+              </MemberCard>
+            );
+          })
+        }
+      </div>
+    );
+  }
+
 }
 
 export default App;
