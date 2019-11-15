@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import MemberCard from './components/MemberCard/MemberCard';
 
@@ -8,25 +8,25 @@ const members = require('./../src/assets/data/team.json');
 
 class App extends Component {
 
-  render() {
-    return (
-      <div className="flex-col flex-wrap">
-        {
-          members.map(member => {
-            return (
-              <MemberCard key={ member.id }
-                          id={ member.id }
-                          title={ member.title }
-                          name={ member.name }
-                          email={ member.email }
-                          image={ member.image }>
-              </MemberCard>
-            );
-          })
-        }
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="flex-col">
+                {
+                    members.map(member => {
+                        return (
+                            <MemberCard key={member.id}
+                                        id={member.id}
+                                        title={member.title}
+                                        name={member.name}
+                                        email={member.email}
+                                        image={member.image}>
+                            </MemberCard>
+                        );
+                    })
+                }
+            </div>
+        );
+    }
 
 }
 
